@@ -12,6 +12,13 @@ Welcome to the **Secret Santa Generator** web application! This app allows users
 - **React Icons**: Customizable SVG icons for React components.
 - **Nodemailer**: Sends email notifications to users with their Secret Santa assignment.
 
+## 🌍 Multilingual Support
+
+The app supports the following languages:
+- **English**
+- **German**
+- **Romanian**
+
 ---
 ![Secret Santa Screenshot](./appScreen.png)
 ---
