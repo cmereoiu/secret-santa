@@ -13,7 +13,8 @@ Welcome to the **Secret Santa Generator** web application! This app allows users
 - **Nodemailer**: Sends email notifications to users with their Secret Santa assignment.
 
 ---
-
+![Secret Santa Screenshot](./appScreen.png)
+---
 ## 📦 Installation
 
 To get the **Secret Santa Generator** app running on your local machine, follow these steps:
