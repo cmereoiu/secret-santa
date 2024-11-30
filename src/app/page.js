@@ -1,4 +1,4 @@
-'use client'; // Indicates this is a client-side component in a React framework like Next.js
+'use client';
 
 import { useState, useEffect } from 'react'; // Import React hooks for managing state and side effects
 import Header from '../../components/header'; // Header component
@@ -7,7 +7,8 @@ import translations from '../../lib/translations'; // Translations for multiling
 import { FaPlus, FaTrashAlt, FaUsers, FaUserEdit, FaChevronDown, FaChevronRight, FaInfoCircle, FaTimes } from 'react-icons/fa'; // FontAwesome icons for UI
 
 // Main Admin component
-export default function Admin() {
+export default function Admin()
+{
     // State variables
     const [name, setName] = useState(''); // Stores user name input
     const [email, setEmail] = useState(''); // Stores user email input
@@ -53,19 +54,22 @@ export default function Admin() {
     // Adds a new user to the system
     const handleAddUser = async () => {
         // Validate name and email inputs
-        if (!name || !email) {
+        if(!name || !email)
+        {
             setInfoMessage(currentLanguage.validation.nameEmailRequired);
             return;
         }
 
         const nameRegex = /^[a-zA-Z\s]{3,50}$/; // Validate name format
-        if (!nameRegex.test(name)) {
+        if(!nameRegex.test(name))
+        {
             setInfoMessage(currentLanguage.validation.invalidName);
             return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validate email format
-        if (!emailRegex.test(email)) {
+        if(!emailRegex.test(email))
+        {
             setInfoMessage(currentLanguage.validation.invalidEmail);
             return;
         }
@@ -79,7 +83,8 @@ export default function Admin() {
 
         const data = await res.json();
 
-        if (data.user) {
+        if(data.user)
+        {
             // Update state with the new user
             setUsers((prev) => [...prev, data.user]);
             setName(''); // Reset name input
@@ -96,7 +101,9 @@ export default function Admin() {
                     ? currentLanguage.infoMessage.replace('{count}', countData.count)
                     : currentLanguage.noUsersMessage
             );
-        } else {
+        }
+        else
+        {
             setInfoMessage(currentLanguage.error.addUserError); // Show error message on failure
         }
     };
@@ -122,11 +129,14 @@ export default function Admin() {
         const res = await fetch('/api/deleteUsers', { method: 'POST' });
         const data = await res.json();
 
-        if (data.message === 'All users deleted successfully!') {
+        if(data.message === 'All users deleted successfully!')
+        {
             setUsers([]); // Clear user list
             setUserCount(0); // Reset user count
             setInfoMessage(currentLanguage.success.usersDeleted); // Success message
-        } else {
+        }
+        else
+        {
             setInfoMessage(currentLanguage.error.deleteUsersError); // Error message
         }
     };

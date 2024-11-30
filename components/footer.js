@@ -1,4 +1,5 @@
-export default function Footer() {
+export default function Footer()
+{
     return (
         <footer className="bg-gradient-to-r from-red-500 to-orange-500 text-white py-8 shadow-xl backdrop-blur-md">
             <div className="max-w-7xl mx-auto text-center">

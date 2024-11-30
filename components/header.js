@@ -1,6 +1,7 @@
 import { FaGlobe } from 'react-icons/fa'; // Import the globe icon from FontAwesome
 
-export default function Header({ currentLanguage, setLanguage }) {
+export default function Header({ currentLanguage, setLanguage })
+{
     return (
         <header className="sticky top-0 z-10 bg-gradient-to-r from-red-500 to-orange-500 shadow-xl backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">

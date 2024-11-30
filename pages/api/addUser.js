@@ -1,18 +1,22 @@
 import { prisma } from '../../lib/prisma';
 
-export default async function handler(req, res) {
-    if (req.method === 'POST') {
+export default async function handler(req, res)
+{
+    if(req.method === 'POST')
+    {
         const { name, email } = req.body;
 
         // Validate name (no special characters, only letters and spaces, 3-50 characters)
         const nameRegex = /^[a-zA-Z\s]{3,50}$/;
-        if (!name || !nameRegex.test(name)) {
+        if(!name || !nameRegex.test(name))
+        {
             return res.status(400).json({ error: 'Invalid name. Only letters and spaces are allowed, with a length of 3 to 50 characters.' });
         }
 
         // Validate email (basic email format)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) {
+        if(!email || !emailRegex.test(email))
+        {
             return res.status(400).json({ error: 'Invalid email format.' });
         }
 
@@ -20,7 +24,8 @@ export default async function handler(req, res) {
         const existingUser = await prisma.user.findUnique({
             where: { email },
         });
-        if (existingUser) {
+        if(existingUser)
+        {
             return res.status(400).json({ error: 'A user with this email already exists.' });
         }
 
